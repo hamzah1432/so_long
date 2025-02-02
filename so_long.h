@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halmuhis <halmuhis@student.42amman.com>    +#+  +:+       +#+        */
+/*   By: halmuhis <halmuhis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 16:36:36 by mdarawsh          #+#    #+#             */
-/*   Updated: 2025/02/02 16:19:04 by halmuhis         ###   ########.fr       */
+/*   Updated: 2025/02/03 01:36:13 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,13 @@ typedef struct s_data
 #include <unistd.h>
 #include <stdio.h>
 #include <stddef.h>
-#include "minilibx-linux/mlx.h"
+// #include "minilibx-linux/mlx.h"
 
-char *ft_strjoin(char const *s1, char const *s2);
+//read_map.c
+static char	*read_file(int fd);
+static void	free_map(char **map);
+
+//get_next_line.c
 char *get_next_line(int fd);
 char **ft_split(char const *s, char c);
 size_t ft_strlen(const char *s);
