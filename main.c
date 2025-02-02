@@ -6,7 +6,7 @@
 /*   By: halmuhis <halmuhis@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:23:51 by halmuhis          #+#    #+#             */
-/*   Updated: 2025/02/01 18:08:15 by halmuhis         ###   ########.fr       */
+/*   Updated: 2025/02/02 17:08:26 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,35 +93,25 @@ int main()
     t_data data;
     int fd;
     char *line;
+    int i;
+
+    i = 0;
+
     // Open the file in read-only mode
     fd = open("map.txt", O_RDONLY);
+    data.map = (char **)malloc(sizeof(char *) * (1));
 
-    // while ((line = get_next_line(fd)) != NULL)
-    // {
-    //     printf("%s", line);
-    //     *data.map=line;
-
-    //     free(line);
-    // }
-    // Initialize the map (no need for malloc)
-    int i = 0;
-    while ((data.map[i] = get_next_line(fd)) != NULL && i < 300)
+    while ((line = get_next_line(fd)) != NULL)
     {
+        data.map[i] = line;
         i++;
     }
 
-    // Null-terminate the array (if necessary)
-    data.map[i] = NULL;
-
-    printf("%s", data.map[0]); // Print the first line of the map
-
-    // Free each line
-    for (int j = 0; j < i; j++)
+    while (i > 0)
     {
-        free(data.map[j]); // Free each line
+        printf("%s", data.map[--i]);
     }
-
-    close(fd);
+    // close(fd);
 
     // Initialize MiniLibX
     data.mlx = mlx_init();

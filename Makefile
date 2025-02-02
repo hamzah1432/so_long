@@ -1,4 +1,4 @@
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 MLX_DIR = ./minilibx-linux
 MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
