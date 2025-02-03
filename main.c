@@ -6,36 +6,21 @@
 /*   By: halmuhis <halmuhis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:23:51 by halmuhis          #+#    #+#             */
-/*   Updated: 2025/02/03 01:40:59 by halmuhis         ###   ########.fr       */
+/*   Updated: 2025/02/03 04:55:53 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+
 int	main(void)
 {
 	t_data	data;
-	int		fd;
-	char	*file_content;
 
-	fd = open("map.txt", O_RDONLY);
-	if (fd < 0)
-	{
-		perror("Error opening file");
-		return (1);
-	}
-	file_content = read_file(fd);
-	close(fd);
-	if (!file_content || !*file_content)
-	{
-		free(file_content);
-		return (1);
-	}
-	data.map = ft_split(file_content, '\n');
-	printf("%s\n", file_content);
-	free(file_content);
+	read_map("assets/map.txt", &data);
+	printf("rows: %d\n", data.rows);
+	printf("cols: %d\n", data.cols);
+	printf("collectible: %d\n",data.collect);
 	free_map(data.map);
 	return (0);
 }
-
-

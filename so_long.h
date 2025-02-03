@@ -6,7 +6,7 @@
 /*   By: halmuhis <halmuhis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 16:36:36 by mdarawsh          #+#    #+#             */
-/*   Updated: 2025/02/03 01:36:13 by halmuhis         ###   ########.fr       */
+/*   Updated: 2025/02/03 04:17:00 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,9 @@ typedef struct s_data
 {
     void *mlx;
     void *win;
-    void *background_img;
-    int bg_width;
-    int bg_height;
-    int line_count;
+    int rows;
+    int cols; 
+    int collect;
     char **map;
     t_player player; // Player struct
 } t_data;
@@ -63,8 +62,12 @@ typedef struct s_data
 // #include "minilibx-linux/mlx.h"
 
 //read_map.c
-static char	*read_file(int fd);
-static void	free_map(char **map);
+char	*read_file(char *path);
+void	add_map(char *file_content, t_data *data);
+void	free_map(char **map);
+int	read_map(char *path, t_data *data);
+
+void	check_map(t_data *data);
 
 //get_next_line.c
 char *get_next_line(int fd);
