@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halmuhis <halmuhis@student.42.fr>          +#+  +:+       +#+        */
+/*   By: halmuhis <halmuhis@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 01:34:39 by halmuhis          #+#    #+#             */
-/*   Updated: 2025/02/03 04:15:51 by halmuhis         ###   ########.fr       */
+/*   Updated: 2025/02/17 00:09:30 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
 char	*read_file(char *path)
 {

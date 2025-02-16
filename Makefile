@@ -2,27 +2,31 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 MLX_DIR = ./minilibx-linux
 MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
+LIBFT_DIR = libft
+LIBFT = $(LIBFT_DIR)/libft.a
 
-SRC = main.c get_next_line.c get_next_line_utils.c ft_split.c read_map.c check_map.c
+SRC = src/main.c src/read_map.c src/check_map.c
 OBJ = $(SRC:.c=.o)
 
-all: $(OBJ)
-	$(CC) $(OBJ) -o so_long $(MLX_FLAGS)
+all: $(LIBFT) $(OBJ)
+	$(CC) $(OBJ) -o so_long $(MLX_FLAGS) -L$(LIBFT_DIR) -lft
 
-# all: $(OBJ)
-# 	$(CC) $(OBJ) -o so_long 
+$(LIBFT):
+	make -C $(LIBFT_DIR)
 
 %.o: %.c
-	$(CC)  -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 run: re
 	./so_long
 
 clean:
 	rm -f $(OBJ)
+	make -C $(LIBFT_DIR) clean
 
 fclean: clean
 	rm -f so_long
+	make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
