@@ -1,37 +1,63 @@
-# so_long
+# so_long - 42 Project
 
-A simple 2D game project for 42 School where you need to collect all collectibles and reach the exit.
+A 2D game project where a player needs to collect all items and reach the exit while avoiding obstacles.
 
-## Description
-so_long is a project that requires creating a small 2D game using the MiniLibX graphics library. The player's goal is to collect all collectibles present on the map and reach the exit using the minimum possible moves.
+## About
+This project is part of the 42 School curriculum. The goal is to create a basic 2D game using the MiniLibX graphics library where the player must collect all collectibles and reach the exit in the minimum number of moves.
 
-## Requirements
+## Game Rules
+- Player must collect all collectibles before reaching the exit
+- Movement counter is displayed in the shell
+- Game closes when 'ESC' is pressed or when window's cross button is clicked
+- Game ends when player reaches exit after collecting all items
+
+## Technical Requirements
 - MiniLibX library
+- C compiler (gcc/clang)
 - Make
-- GCC compiler
+- Linux/MacOS
 
-## Map Rules
-- Maps must be `.ber` files
-- Maps must be rectangular
-- Maps must be surrounded by walls ('1')
-- Maps must contain:
-  - One exit ('E')
-  - One player starting position ('P')
-  - At least one collectible ('C')
-- Maps must have a valid path
+## Map Configuration
+- Files must have `.ber` extension
+- Map must be composed of:
+  - Walls ('1')
+  - Empty space ('0')
+  - Collectibles ('C')
+  - Exit ('E')
+  - Player starting position ('P')
+- Map must be rectangular and closed by walls
+- Must have exactly one exit, one starting position, and at least one collectible
+- Must have a valid path to collect all items and reach the exit
 
 ## Controls
-- W or ↑ : Move up
-- S or ↓ : Move down
-- A or ← : Move left
-- D or → : Move right
-- ESC : Close game
+- W or Up Arrow : Move up
+- S or Down Arrow : Move down
+- A or Left Arrow : Move left
+- D or Right Arrow : Move right
+- ESC : Exit game
 
-## How to Run
+## Installation & Usage
 ```bash
+# Clone the repository
+git clone <repository-url>
+
+# Navigate to project directory
+cd so_long
+
+# Compile the game
 make
-./so_long maps/valid_map.ber
+
+# Run the game with a map
+./so_long maps/map.ber
 ```
 
+## Error Management
+- Program exits cleanly if no map is found
+- Program displays "Error\n" followed by an explicit error message
+- Maps are checked for validity before game starts
+
 ## Author
-- halmuhis
+- halmuhis (42 login)
+
+## License
+This project is part of 42 School curriculum.
