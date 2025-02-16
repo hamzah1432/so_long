@@ -6,4 +6,5 @@
 *.exe
 .DS_Store
 .vscode/
+minilibx-linux/
 so_long
