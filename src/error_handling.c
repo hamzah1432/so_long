@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_append.c                                        :+:      :+:    :+:   */
+/*   error_handling.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halmuhis <halmuhis@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/16 18:14:56 by halmuhis          #+#    #+#             */
-/*   Updated: 2025/02/23 14:29:44 by halmuhis         ###   ########.fr       */
+/*   Created: 2025/02/23 14:32:28 by halmuhis          #+#    #+#             */
+/*   Updated: 2025/02/23 14:56:42 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 
-void	ft_append(char **str, unsigned char ch)
+#include "../include/so_long.h"
+
+void	exit_read_error(char *str, char *msg)
 {
-	char			*temp;
-	unsigned int	size;
-	size_t			i;
-
-	i = 0;
-	if (!str || !*str)
-		size = 0;
-	else
-		size = ft_strlen(*str);
-	temp = malloc(size + 2);
-	if (!temp)
-		return ;
-	while (i < size)
-	{
-		temp[i] = (*str)[i];
-		i++;
-	}
-	temp[size] = ch;
-	temp[size + 1] = '\0';
-	free(*str);
-	*str = temp;
+	if (str != NULL)
+		free(str);
+	ft_putendl_fd("Error with read.c", 2);
+	ft_putendl_fd(msg, 2);
+	exit(1);
+}
+void	exit_check_error(char *msg)
+{
+	ft_putendl_fd("Error with check.c", 2);
+	ft_putendl_fd(msg, 2);
+	exit(0);
 }

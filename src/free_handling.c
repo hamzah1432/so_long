@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_append.c                                        :+:      :+:    :+:   */
+/*   free_handling.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halmuhis <halmuhis@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/16 18:14:56 by halmuhis          #+#    #+#             */
-/*   Updated: 2025/02/23 14:29:44 by halmuhis         ###   ########.fr       */
+/*   Created: 2025/02/23 14:42:21 by halmuhis          #+#    #+#             */
+/*   Updated: 2025/02/23 14:42:47 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/so_long.h"
 
-void	ft_append(char **str, unsigned char ch)
+void	free_map(char **map)
 {
-	char			*temp;
-	unsigned int	size;
-	size_t			i;
+	int	i;
 
 	i = 0;
-	if (!str || !*str)
-		size = 0;
-	else
-		size = ft_strlen(*str);
-	temp = malloc(size + 2);
-	if (!temp)
-		return ;
-	while (i < size)
+	while (map[i])
 	{
-		temp[i] = (*str)[i];
+		free(map[i]);
 		i++;
 	}
-	temp[size] = ch;
-	temp[size + 1] = '\0';
-	free(*str);
-	*str = temp;
+	free(map);
 }

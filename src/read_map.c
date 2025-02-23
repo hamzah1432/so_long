@@ -6,13 +6,13 @@
 /*   By: halmuhis <halmuhis@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 01:34:39 by halmuhis          #+#    #+#             */
-/*   Updated: 2025/02/17 00:09:30 by halmuhis         ###   ########.fr       */
+/*   Updated: 2025/02/23 14:44:44 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-char	*read_file(char *path)
+static	char	*read_file(char *path)
 {
 	char	*line;
 	char	*tmp;
@@ -20,10 +20,14 @@ char	*read_file(char *path)
 	int		fd;
 
 	tmp1 = ft_strdup("");
+	if (!tmp1)
+		exit_read_error(NULL, "Memory allocation failed");
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
 		return (0);
 	line = get_next_line(fd);
+	if (!line)
+		exit_read_error(tmp1, "Memory allocation failed");
 	while (line != NULL)
 	{
 		tmp = tmp1;
@@ -36,7 +40,7 @@ char	*read_file(char *path)
 	return (tmp1);
 }
 
-void	add_map(char *file_content, t_data *data)
+static	void	add_map(char *file_content, t_data *data)
 {
 	int	i;
 	int	j;
@@ -66,17 +70,4 @@ int	read_map(char *path, t_data *data)
 	check_map(data);
 	free(file_content);
 	return (0);
-}
-
-void	free_map(char **map)
-{
-	int	i;
-
-	i = 0;
-	while (map[i])
-	{
-		free(map[i]);
-		i++;
-	}
-	free(map);
 }

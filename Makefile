@@ -5,7 +5,7 @@ MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-SRC = src/main.c src/read_map.c src/check_map.c
+SRC = src/main.c src/read_map.c src/check_map.c src/free_handling.c src/error_handling.c
 OBJ = $(SRC:.c=.o)
 
 all: $(LIBFT) $(OBJ)

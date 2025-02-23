@@ -6,7 +6,7 @@
 /*   By: halmuhis <halmuhis@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 16:36:36 by mdarawsh          #+#    #+#             */
-/*   Updated: 2025/02/17 00:04:23 by halmuhis         ###   ########.fr       */
+/*   Updated: 2025/02/23 15:21:59 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ typedef struct s_position
     int x; // Player's x position
     int y; // Player's y position
 } t_position;
+
+typedef struct s_flood
+{
+	int	collectibles;
+	int	exit;
+	int	rows;
+	int	cols;
+}	t_flood;
 
 // Structure for game data
 typedef struct s_data
@@ -57,21 +65,15 @@ typedef struct s_data
 #include "../minilibx-linux/mlx.h"
 
 // read_map.c
-char *read_file(char *path);
-void add_map(char *file_content, t_data *data);
-void free_map(char **map);
-int read_map(char *path, t_data *data);
+void    free_map(char **map);
+int     read_map(char *path, t_data *data);
 
-void check_map(t_data *data);
+void    check_map(t_data *data);
 
-// get_next_line.c
-char *get_next_line(int fd);
-// char **ft_split(char const *s, char c);
-// size_t ft_strlen(const char *s);
-// char *ft_strdup(const char *s);
-// char *ft_strjoin(char const *s1, char const *s2);
-// char *ft_strchr(const char *s, int c);
-// size_t ft_strlcpy(char *dst, const char *src, size_t size);
-// char *ft_substr(char const *s, unsigned int start, size_t len);
+char    *get_next_line(int fd);
+
+void	exit_read_error(char *str, char *msg);
+void	exit_check_error(char *msg);
+
 
 #endif
