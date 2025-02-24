@@ -6,7 +6,7 @@
 /*   By: halmuhis <halmuhis@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 01:34:39 by halmuhis          #+#    #+#             */
-/*   Updated: 2025/02/23 14:44:44 by halmuhis         ###   ########.fr       */
+/*   Updated: 2025/02/24 02:02:53 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ static	char	*read_file(char *path)
 	char	*tmp1;
 	int		fd;
 
-	tmp1 = ft_strdup("");
-	if (!tmp1)
-		exit_read_error(NULL, "Memory allocation failed");
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
 		return (0);
+	tmp1 = ft_strdup("");
+	if (!tmp1)
+		exit_read_error(NULL, "Memory allocation failed");
 	line = get_next_line(fd);
 	if (!line)
 		exit_read_error(tmp1, "Memory allocation failed");
@@ -48,6 +48,8 @@ static	void	add_map(char *file_content, t_data *data)
 	i = 0;
 	j = 0;
 	data->map = ft_split(file_content, '\n');
+	if (data->map == NULL)
+		exit_read_error(file_content, "Memory allocation failed add_map");
 	while (data->map[i])
 		i++;
 	data->rows = i;
@@ -59,15 +61,15 @@ static	void	add_map(char *file_content, t_data *data)
 int	read_map(char *path, t_data *data)
 {
 	char	*file_content;
+	char	*extension;
 
+	extension = path + ft_strlen(path) - 4;
+	if (ft_strncmp(extension, ".ber", 4) != 0)
+		exit_read_error(NULL, "Invalid map file: must end with .ber");
 	file_content = read_file(path);
 	if (!file_content || *file_content == '\0')
-	{
-		free(file_content);
-		exit(0);
-	}
+		exit_read_error(file_content, "map is empty");
 	add_map(file_content, data);
-	check_map(data);
 	free(file_content);
 	return (0);
 }

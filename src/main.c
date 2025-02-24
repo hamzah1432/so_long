@@ -6,7 +6,7 @@
 /*   By: halmuhis <halmuhis@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:23:51 by halmuhis          #+#    #+#             */
-/*   Updated: 2025/02/17 00:09:23 by halmuhis         ###   ########.fr       */
+/*   Updated: 2025/02/24 03:03:13 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,12 @@ int key_hook(int keycode, t_data *data)
 	// Check if the new position is a valid move (not a wall)
 	if (data->map[new_y][new_x] != '1' && (data->map[new_y][new_x] != 'E'|| data->collect == 0))
 	{
-		printf("Steps: %d\n", ++data->steps);
+		if (data->steps++)
+		{
+			ft_putnbr_fd(data->steps - 1, 1);
+			ft_putendl_fd(" Step", 1);
+		}
+
 		data->map[data->position.y][data->position.x] = '0'; // Clear old player position
 		data->position.x = new_x;
 		data->position.y = new_y;
@@ -95,7 +100,7 @@ int key_hook(int keycode, t_data *data)
 	return (0);
 }
 
-int main(void)
+int main(int argc , char *argv[])
 {
 	t_data data;
 	int width;
@@ -103,7 +108,10 @@ int main(void)
 	int i = 0;
 	int j = 0;
 
-	read_map("assets/map.txt", &data);
+	if (argc != 2)
+		return (0);
+	read_map(argv[1], &data);
+	check_map(data.map, &data.collect);
 	width = data.cols * 80;
 	height = data.rows * 80;
 	// Initialize MinilibX
