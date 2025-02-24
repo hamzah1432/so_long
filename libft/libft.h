@@ -6,16 +6,16 @@
 /*   By: halmuhis <halmuhis@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 16:50:30 by halmuhis          #+#    #+#             */
-/*   Updated: 2025/02/17 00:04:32 by halmuhis         ###   ########.fr       */
+/*   Updated: 2025/02/25 01:44:26 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-#ifndef BUFFER_SIZE
-#define BUFFER_SIZE 15
-#endif
+# ifndef BUFFER_SIZE
+# define BUFFER_SIZE 15
+# endif
 
 # include <stddef.h>
 # include <stdlib.h>
