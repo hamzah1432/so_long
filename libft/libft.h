@@ -6,7 +6,7 @@
 /*   By: halmuhis <halmuhis@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 16:50:30 by halmuhis          #+#    #+#             */
-/*   Updated: 2025/02/25 01:44:26 by halmuhis         ###   ########.fr       */
+/*   Updated: 2025/02/25 02:12:55 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define LIBFT_H
 
 # ifndef BUFFER_SIZE
-# define BUFFER_SIZE 15
+#  define BUFFER_SIZE 15
 # endif
 
 # include <stddef.h>
@@ -45,7 +45,6 @@ void	*ft_memset(void *s, int c, size_t n);
 void	*ft_bzero(void *s, size_t n);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlen(const char *s);
 
 char	*ft_strjoin(char const *s1, char const *s2);

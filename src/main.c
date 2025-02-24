@@ -6,7 +6,7 @@
 /*   By: halmuhis <halmuhis@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:23:51 by halmuhis          #+#    #+#             */
-/*   Updated: 2025/02/25 01:38:54 by halmuhis         ###   ########.fr       */
+/*   Updated: 2025/02/25 02:10:54 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static	int	close_window(t_data *data)
 	{
 		free_images(data);
 		free_map(data->map);
-        free_mlx(data);
+		free_mlx(data);
 	}
 	exit(0);
 	return (0);
@@ -105,7 +105,6 @@ int	key_hook(int keycode, t_data *data)
 		render_map(data);
 	return (0);
 }
-
 
 int	main(int argc, char *argv[])
 {

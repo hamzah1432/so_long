@@ -6,7 +6,7 @@
 /*   By: halmuhis <halmuhis@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 16:36:36 by mdarawsh          #+#    #+#             */
-/*   Updated: 2025/02/25 01:06:38 by halmuhis         ###   ########.fr       */
+/*   Updated: 2025/02/25 01:56:59 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 # define WIDTH 500
 # define HEIGHT 500
-# define grid 80
+# define GRID 80
 
 typedef struct s_img
 {
@@ -48,6 +48,13 @@ typedef struct s_flood
 	int	cols;
 }	t_flood;
 
+typedef struct s_map_count
+{
+	int	exit;
+	int	player;
+	int	collect;
+}	t_map_count;
+
 typedef struct s_data
 {
 	void		*mlx;
@@ -69,11 +76,10 @@ typedef struct s_data
 void	free_map(char **map);
 void	free_mlx(t_data *data);
 void	free_images(t_data *data);
-
 int		read_map(char *path, t_data *data);
-void 	check_map(char **map, int *collect);
+void	check_map(char **map, int *collect);
 void	check_valid_path(char **map, int rows, int cols);
-void 	data_initial(t_data *data);
+void	data_initial(t_data *data);
 void	images_initial(t_data *data);
 
 /* Utils */
@@ -81,6 +87,5 @@ char	*get_next_line(int fd);
 void	exit_read_error(char *str, char *msg);
 void	exit_check_error(char **map, char *msg);
 void	exit_main_error(char *msg, t_data *data);
-
 
 #endif

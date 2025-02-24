@@ -6,10 +6,9 @@
 /*   By: halmuhis <halmuhis@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 14:32:28 by halmuhis          #+#    #+#             */
-/*   Updated: 2025/02/25 00:42:25 by halmuhis         ###   ########.fr       */
+/*   Updated: 2025/02/25 01:51:59 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../include/so_long.h"
 
@@ -21,6 +20,7 @@ void	exit_read_error(char *str, char *msg)
 	ft_putendl_fd(msg, 2);
 	exit(1);
 }
+
 void	exit_check_error(char **map, char *msg)
 {
 	free_map(map);
@@ -37,7 +37,7 @@ void	exit_main_error(char *msg, t_data *data)
 	{
 		free_images(data);
 		free_map(data->map);
-        free_mlx(data);
+		free_mlx(data);
 	}
 	exit(1);
 }

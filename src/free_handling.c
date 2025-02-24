@@ -6,7 +6,7 @@
 /*   By: halmuhis <halmuhis@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 14:42:21 by halmuhis          #+#    #+#             */
-/*   Updated: 2025/02/25 00:52:11 by halmuhis         ###   ########.fr       */
+/*   Updated: 2025/02/25 02:05:33 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	free_map(char **map)
 
 	i = 0;
 	if (map)
-	{	
+	{
 		while (map[i])
 		{
 			free(map[i]);

@@ -6,7 +6,7 @@
 /*   By: halmuhis <halmuhis@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 03:19:58 by halmuhis          #+#    #+#             */
-/*   Updated: 2025/02/25 01:06:48 by halmuhis         ###   ########.fr       */
+/*   Updated: 2025/02/25 02:01:24 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ void	data_initial(t_data *data)
 	int	width;
 	int	height;
 
-	width = data->cols * grid;
-	height = data->rows * grid;
+	width = data->cols * GRID;
+	height = data->rows * GRID;
 	data->steps = 0;
-    data->wall.img = NULL;
-    data->coin.img = NULL;
-    data->player.img = NULL;
-    data->exit.img = NULL;
+	data->wall.img = NULL;
+	data->coin.img = NULL;
+	data->player.img = NULL;
+	data->exit.img = NULL;
 	data->mlx = mlx_init();
 	if (!data->mlx)
 		exit_main_error("MLX initialization failed", data);
@@ -42,6 +42,7 @@ void	images_initial(t_data *data)
 			&data->player.width, &data->player.height);
 	data->exit.img = mlx_xpm_file_to_image(data->mlx, "assets/exit.xpm",
 			&data->exit.width, &data->exit.height);
-	if (!data->wall.img || !data->player.img || !data->coin.img || !data->exit.img)
-        exit_main_error("Window creation failed", data);
+	if (!data->wall.img || !data->player.img || !data->coin.img
+		|| !data->exit.img)
+		exit_main_error("Window creation failed", data);
 }
