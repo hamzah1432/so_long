@@ -6,7 +6,7 @@
 /*   By: halmuhis <halmuhis@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:23:51 by halmuhis          #+#    #+#             */
-/*   Updated: 2025/02/25 02:10:54 by halmuhis         ###   ########.fr       */
+/*   Updated: 2025/02/26 16:39:46 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,19 @@ static void	render_tile(t_data *data, int i, int j)
 {
 	if (data->map[i][j] == '1')
 		mlx_put_image_to_window(data->mlx, data->win,
-			data->wall.img, j * grid, i * grid);
+			data->wall.img, j * GRID, i * GRID);
 	else if (data->map[i][j] == 'C')
 		mlx_put_image_to_window(data->mlx, data->win,
-			data->coin.img, j * grid, i * grid);
+			data->coin.img, j * GRID, i * GRID);
 	else if (data->map[i][j] == 'E')
 		mlx_put_image_to_window(data->mlx, data->win,
-			data->exit.img, j * grid, i * grid);
+			data->exit.img, j * GRID, i * GRID);
 	else if (data->map[i][j] == 'P')
 	{
 		data->position.x = j;
 		data->position.y = i;
 		mlx_put_image_to_window(data->mlx, data->win,
-			data->player.img, j * grid, i * grid);
+			data->player.img, j * GRID, i * GRID);
 	}
 }
 
