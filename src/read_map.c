@@ -6,7 +6,7 @@
 /*   By: halmuhis <halmuhis@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 01:34:39 by halmuhis          #+#    #+#             */
-/*   Updated: 2025/02/24 02:02:53 by halmuhis         ###   ########.fr       */
+/*   Updated: 2025/02/28 18:06:55 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,20 @@ static	char	*read_file(char *path)
 	return (tmp1);
 }
 
+static int	check_newlines(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] && str[i + 1])
+	{
+		if (str[i] == '\n' && str[i + 1] == '\n')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 static	void	add_map(char *file_content, t_data *data)
 {
 	int	i;
@@ -69,6 +83,8 @@ int	read_map(char *path, t_data *data)
 	file_content = read_file(path);
 	if (!file_content || *file_content == '\0')
 		exit_read_error(file_content, "map is empty");
+	if (check_newlines(file_content))
+		exit_read_error(file_content, "Invalid map: contains empty lines");
 	add_map(file_content, data);
 	free(file_content);
 	return (0);
