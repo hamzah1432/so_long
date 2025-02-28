@@ -6,7 +6,7 @@
 /*   By: halmuhis <halmuhis@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:23:51 by halmuhis          #+#    #+#             */
-/*   Updated: 2025/02/26 16:41:05 by halmuhis         ###   ########.fr       */
+/*   Updated: 2025/02/28 17:57:44 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ static void	render_tile(t_data *data, int i, int j)
 		data->position.y = i;
 		mlx_put_image_to_window(data->mlx, data->win,
 			data->player.img, j * GRID, i * GRID);
+	}
+	if (data->map[i][j] == 'E')
+	{
+		data->exit_p.x = j;
+		data->exit_p.y = i;
 	}
 }
 
@@ -53,8 +58,7 @@ void	render_map(t_data *data)
 
 static int	process_movement(t_data *data, int new_x, int new_y)
 {
-	if (data->map[new_y][new_x] == '1'
-		|| (data->map[new_y][new_x] == 'E' && data->collect != 0))
+	if (data->map[new_y][new_x] == '1')
 		return (0);
 	if (data->steps++)
 	{
@@ -66,6 +70,9 @@ static int	process_movement(t_data *data, int new_x, int new_y)
 		data->collect--;
 	if (data->map[new_y][new_x] == 'E' && data->collect == 0)
 		close_window(data);
+	if (data->position.x == data->exit_p.x
+		&& data->position.y == data->exit_p.y)
+		data->map[data->exit_p.y][data->exit_p.x] = 'E';
 	data->position.x = new_x;
 	data->position.y = new_y;
 	data->map[new_y][new_x] = 'P';

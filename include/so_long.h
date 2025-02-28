@@ -6,7 +6,7 @@
 /*   By: halmuhis <halmuhis@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 16:36:36 by mdarawsh          #+#    #+#             */
-/*   Updated: 2025/02/26 16:41:32 by halmuhis         ###   ########.fr       */
+/*   Updated: 2025/02/28 17:42:59 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ typedef struct s_data
 	t_img		player;
 	t_img		exit;
 	t_position	position;
+	t_position	exit_p;
 }	t_data;
 
 /* Map functions */
