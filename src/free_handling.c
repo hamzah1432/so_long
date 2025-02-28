@@ -6,7 +6,7 @@
 /*   By: halmuhis <halmuhis@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 14:42:21 by halmuhis          #+#    #+#             */
-/*   Updated: 2025/02/25 02:05:33 by halmuhis         ###   ########.fr       */
+/*   Updated: 2025/02/26 16:41:15 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,16 @@ void	free_mlx(t_data *data)
 		mlx_destroy_display(data->mlx);
 		free(data->mlx);
 	}
+}
+
+int	close_window(t_data *data)
+{
+	if (data)
+	{
+		free_images(data);
+		free_map(data->map);
+		free_mlx(data);
+	}
+	exit(0);
+	return (0);
 }

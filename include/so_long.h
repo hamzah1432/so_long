@@ -6,7 +6,7 @@
 /*   By: halmuhis <halmuhis@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 16:36:36 by mdarawsh          #+#    #+#             */
-/*   Updated: 2025/02/25 01:56:59 by halmuhis         ###   ########.fr       */
+/*   Updated: 2025/02/26 16:41:32 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	check_map(char **map, int *collect);
 void	check_valid_path(char **map, int rows, int cols);
 void	data_initial(t_data *data);
 void	images_initial(t_data *data);
+int		close_window(t_data *data);
 
 /* Utils */
 char	*get_next_line(int fd);

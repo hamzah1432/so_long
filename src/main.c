@@ -6,23 +6,11 @@
 /*   By: halmuhis <halmuhis@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:23:51 by halmuhis          #+#    #+#             */
-/*   Updated: 2025/02/26 16:39:46 by halmuhis         ###   ########.fr       */
+/*   Updated: 2025/02/26 16:41:05 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
-
-static	int	close_window(t_data *data)
-{
-	if (data)
-	{
-		free_images(data);
-		free_map(data->map);
-		free_mlx(data);
-	}
-	exit(0);
-	return (0);
-}
 
 static void	render_tile(t_data *data, int i, int j)
 {
