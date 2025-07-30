@@ -2,6 +2,7 @@
 
 A 2D game project where a player needs to collect all items and reach the exit while avoiding obstacles.
 
+![App Screenshot](assets/game.png)
 ## About
 This project is part of the 42 School curriculum. The goal is to create a basic 2D game using the MiniLibX graphics library where the player must collect all collectibles and reach the exit in the minimum number of moves.
 
@@ -44,6 +45,8 @@ git clone <repository-url>
 # Navigate to project directory
 cd so_long
 
+# install your mlx either Linux or MacOS in a folder called /minilibx-linux>
+
 # Compile the game
 make
 
@@ -57,7 +60,7 @@ make
 - Maps are checked for validity before game starts
 
 ## Author
-- halmuhis (42 login)
+- hamza Almuhisen
 
 ## License
 This project is part of 42 School curriculum.
