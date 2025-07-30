@@ -51,7 +51,7 @@ cd so_long
 make
 
 # Run the game with a map
-./so_long maps/map.ber
+./so_long assets/map.ber
 ```
 
 ## Error Management
