@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halmuhis <halmuhis@student.42amman.com>    +#+  +:+       +#+        */
+/*   By: halmuhis <halmuhis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:23:51 by halmuhis          #+#    #+#             */
-/*   Updated: 2025/02/28 17:57:44 by halmuhis         ###   ########.fr       */
+/*   Updated: 2025/08/05 19:57:47 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ static int	process_movement(t_data *data, int new_x, int new_y)
 {
 	if (data->map[new_y][new_x] == '1')
 		return (0);
-	if (data->steps++)
+	if (++data->steps)
 	{
-		ft_putnbr_fd(data->steps - 1, 1);
+		ft_putnbr_fd(data->steps, 1);
 		ft_putendl_fd(" Step", 1);
 	}
 	data->map[data->position.y][data->position.x] = '0';
@@ -86,18 +86,30 @@ int	key_hook(int keycode, t_data *data)
 
 	new_x = data->position.x;
 	new_y = data->position.y;
+	if (!data->start)
+	{
+		if (keycode == 65293)
+		{
+			render_map(data);
+			data->start = 1;
+		}
+		if (keycode == 65307)
+			close_window(data);
+		return (0);
+	}
 	if (keycode == 65307)
 		close_window(data);
-	else if (keycode == 65361)
+	else if (keycode == 65361 || keycode == 97)
 		new_x--;
-	else if (keycode == 65363)
+	else if (keycode == 65363 || keycode == 100)
 		new_x++;
-	else if (keycode == 65362)
+	else if (keycode == 65362 || keycode == 119)
 		new_y--;
-	else if (keycode == 65364)
+	else if (keycode == 65364 || keycode == 115)
 		new_y++;
-	if (process_movement(data, new_x, new_y))
-		render_map(data);
+	if (data->position.x != new_x || data->position.y != new_y)
+		if (process_movement(data, new_x, new_y))
+			render_map(data);
 	return (0);
 }
 
@@ -111,8 +123,9 @@ int	main(int argc, char *argv[])
 	check_map(data.map, &data.collect);
 	data_initial(&data);
 	images_initial(&data);
-	render_map(&data);
-	mlx_key_hook(data.win, key_hook, &data);
+	// render_map(&data);
+	start_menu(&data);
+	mlx_hook(data.win, 02, 1L >> 0, key_hook, &data);
 	mlx_hook(data.win, 17, 0, close_window, &data);
 	mlx_loop(data.mlx);
 	return (0);

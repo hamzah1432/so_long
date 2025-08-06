@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initial.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halmuhis <halmuhis@student.42amman.com>    +#+  +:+       +#+        */
+/*   By: halmuhis <halmuhis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 03:19:58 by halmuhis          #+#    #+#             */
-/*   Updated: 2025/02/28 17:47:34 by halmuhis         ###   ########.fr       */
+/*   Updated: 2025/08/05 19:51:40 by halmuhis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ void	data_initial(t_data *data)
 	data->coin.img = NULL;
 	data->player.img = NULL;
 	data->exit.img = NULL;
+	data->steps = 0;
 	data->exit_p.x = 0;
 	data->exit_p.y = 0;
+	data->start = 0;
 	data->mlx = mlx_init();
 	if (!data->mlx)
 		exit_main_error("MLX initialization failed", data);
