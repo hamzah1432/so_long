@@ -20,10 +20,16 @@
 # include <stddef.h>
 # include <string.h>
 # include "../libft/libft.h"
+# include "../minilibx-linux/mlx.h"
 
-# define WIDTH 500
-# define HEIGHT 500
+
+# define WIDTH 1520
+# define HEIGHT 855
 # define GRID 80
+
+#define KEY_UP    65362
+#define KEY_DOWN  65364
+#define KEY_ESC   65307
 
 typedef struct s_img
 {
@@ -64,6 +70,7 @@ typedef struct s_data
 	int			collect;
 	int			steps;
 	int			start;
+	int			current_bg;
 	char		**map;
 	t_img		wall;
 	t_img		coin;

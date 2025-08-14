@@ -17,8 +17,6 @@ void	data_initial(t_data *data)
 	int	width;
 	int	height;
 
-	width = data->cols * GRID;
-	height = data->rows * GRID;
 	data->steps = 0;
 	data->wall.img = NULL;
 	data->coin.img = NULL;
@@ -28,7 +26,9 @@ void	data_initial(t_data *data)
 	data->exit_p.x = 0;
 	data->exit_p.y = 0;
 	data->start = 0;
+	data->current_bg = 1;
 	data->mlx = mlx_init();
+	mlx_get_screen_size(data->mlx, &width, &height);
 	if (!data->mlx)
 		exit_main_error("MLX initialization failed", data);
 	data->win = mlx_new_window(data->mlx, width, height, "So Long");

@@ -125,7 +125,7 @@ int	main(int argc, char *argv[])
 	images_initial(&data);
 	// render_map(&data);
 	start_menu(&data);
-	// mlx_hook(data.win, 02, 1L >> 0, key_hook, &data);
+	mlx_hook(data.win, 02, 1L >> 0, key_hook, &data);
 	mlx_hook(data.win, 17, 0, close_window, &data);
 	mlx_loop(data.mlx);
 	return (0);
